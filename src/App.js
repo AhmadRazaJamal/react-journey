@@ -1,29 +1,10 @@
 import React from 'react';
 import './App.css';
 
-const list = [
-  {
-    title: 'React',
-    url: 'https://reactjs.org/',
-    author: 'Jordan Walke',
-    num_comments: 3,
-    points: 4,
-    objectID: 0,
-  },
-  {
-    title: 'Redux',
-    url: 'https://redux.js.org/',
-    author: 'Dan Abramov, Andrew Clark',
-    num_comments: 2,
-    points: 5,
-    objectID: 1,
-  },
-];
-
-const List = () => (
+const List = props => (
   <div>
     {
-      list.map((item) => {
+      props.list.map((item) => {
         return (
           <div key={item.objectID}>
             <span>
@@ -38,24 +19,50 @@ const List = () => (
   </div>
 );
 
-const handleChange = event => {
-  console.log(event.target.value);
-};
+const App = () => {
 
-const App = () => (
+  const creatorsList = [
+    {
+      title: 'React',
+      url: 'https://reactjs.org/',
+      author: 'Jordan Walke',
+      num_comments: 3,
+      points: 4,
+      objectID: 0,
+    },
+    {
+      title: 'Redux',
+      url: 'https://redux.js.org/',
+      author: 'Dan Abramov, Andrew Clark',
+      num_comments: 2,
+      points: 5,
+      objectID: 1,
+    },
+  ];
+
+  const handleChange = event => {
+    console.log(event.target.value);
+  };
+
+  const[searchTerm, setSearchTerm] = React.useState('');
+
+  return (
+
     <div className="App">
       <h1>
         My React Journey
       </h1>
 
       <label htmlFor="search">Search: </label>
-      <input id="search" type="text" onChange={handleChange}/>
+      <input id="search" type="text" onChange={handleChange} />
 
       <hr />
-     
-      <List/>
-    
+
+      <List list={creatorsList}/>
+
     </div>
-);
+
+  );
+};
 
 export default App;
