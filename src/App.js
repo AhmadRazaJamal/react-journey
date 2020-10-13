@@ -20,18 +20,9 @@ const list = [
   },
 ];
 
-function App() {
-  return (
-    <div className="App">
-      <h1>
-        My React Journey
-      </h1>
-
-      <label htmlFor="search">Search: </label>
-      <input id="search" type="text" />
-
-      <hr />
-
+function List() {
+  return(
+    <div>
       {
         list.map ((item) => {
           return (
@@ -45,6 +36,24 @@ function App() {
           );
         })
       }
+    </div>
+  )
+}
+
+function App() {
+  return (
+    <div className="App">
+      <h1>
+        My React Journey
+      </h1>
+
+      <label htmlFor="search">Search: </label>
+      <input id="search" type="text" />
+
+      <hr />
+     
+      <List/>
+    
     </div>
   );
 }
