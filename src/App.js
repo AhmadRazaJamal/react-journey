@@ -20,28 +20,25 @@ const list = [
   },
 ];
 
-function List() {
-  return(
-    <div>
-      {
-        list.map ((item) => {
-          return (
-            <div key={item.objectID}>
+const List = () => (
+  <div>
+    {
+      list.map((item) => {
+        return (
+          <div key={item.objectID}>
             <span>
               <a href={item.url}>{item.title}</a>
             </span>
             <span>{item.author}</span>
-            <span>{item.num_comments}</span> 
-            </div>
-          );
-        })
-      }
-    </div>
-  )
-}
+            <span>{item.num_comments}</span>
+          </div>
+        );
+      })
+    }
+  </div>
+);
 
-function App() {
-  return (
+const App = () => (
     <div className="App">
       <h1>
         My React Journey
@@ -55,7 +52,6 @@ function App() {
       <List/>
     
     </div>
-  );
-}
+);
 
 export default App;
