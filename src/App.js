@@ -1,18 +1,15 @@
 import React from 'react';
 import './App.css';
 
-const name = "Ahmad Jamal";
-
-const welcome = {
-  greeting: 'Hey',
-  title: 'React',
-};
+function getTitle(title) {
+  return title;
+}
 
 function App() {
   return (
     <div className="App">
       <h1>
-        {welcome.greeting} {welcome.title}
+        {getTitle("React")}
       </h1>
 
       <label htmlFor="search">Search: </label>
