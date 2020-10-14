@@ -23,7 +23,7 @@ const Search = (props) => {
   return (
     <div>
       <label htmlFor="search">Search: </label>
-      <input id="search" type="text" onChange={props.handleChange} />
+      <input id="search" type="text" onChange={props.onSearch} />
     </div>
   );
 
@@ -52,9 +52,15 @@ const App = () => {
     },
   ];
 
-  const handleSearch= event => {
+  const handleSearch = event => {
     setSearchTerm(event.target.value);
   };
+
+  const searchedCreatorList = creatorsList.filter(creator =>
+    creator.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  console.log(searchTerm);
 
   return (
 
@@ -66,7 +72,7 @@ const App = () => {
 
       <hr />
 
-      <List list={creatorsList}/>
+      <List list={searchedCreatorList}/>
 
     </div>
 
