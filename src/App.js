@@ -20,27 +20,18 @@ const List = props => (
 );
 
 const Search = (props) => {
-
-  const[searchTerm, setSearchTerm] = React.useState('');
-
-  const handleChange = event => {
-    
-    setSearchTerm(event.target.value);
-    props.onSearch(event)
-  };
-  
   return (
     <div>
       <label htmlFor="search">Search: </label>
-      <input id="search" type="text" onChange={handleChange} />
-
-      <p>Searching for <strong>{searchTerm}</strong></p>
+      <input id="search" type="text" onChange={props.handleChange} />
     </div>
   );
 
 };
 
 const App = () => {
+
+  const[searchTerm, setSearchTerm] = React.useState('');
 
   const creatorsList = [
     {
@@ -61,8 +52,8 @@ const App = () => {
     },
   ];
 
-  const handleChange = event => {
-    console.log(event.target.value);
+  const handleSearch= event => {
+    setSearchTerm(event.target.value);
   };
 
   return (
@@ -71,7 +62,7 @@ const App = () => {
       <h1>
         My React Journey
       </h1>
-      <Search onSearch={handleChange}/>
+      <Search onSearch={handleSearch}/>
 
       <hr />
 
