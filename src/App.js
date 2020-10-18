@@ -23,7 +23,7 @@ const Search = (props) => {
   return (
     <div>
       <label htmlFor="search">Search: </label>
-      <input id="search" type="text" onChange={props.onSearch} />
+      <input id="search" type="text" onChange={props.onSearch} value={props.searchTerm}/>
     </div>
   );
 
@@ -31,11 +31,11 @@ const Search = (props) => {
 
 const App = () => {
 
-  const[searchTerm, setSearchTerm] = React.useState('');
+  const[searchTerm, setSearchTerm] = React.useState('React');
 
   const creatorsList = [
     {
-      title: 'React',
+      title: 'React ',
       url: 'https://reactjs.org/',
       author: 'Jordan Walke',
       num_comments: 3,
@@ -43,7 +43,7 @@ const App = () => {
       objectID: 0,
     },
     {
-      title: 'Redux',
+      title: 'Redux ',
       url: 'https://redux.js.org/',
       author: 'Dan Abramov, Andrew Clark',
       num_comments: 2,
@@ -60,15 +60,13 @@ const App = () => {
     creator.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  console.log(searchTerm);
-
   return (
 
     <div className="App">
       <h1>
         My React Journey
       </h1>
-      <Search onSearch={handleSearch}/>
+      <Search onSearch={handleSearch} searchTerm={searchTerm} />
 
       <hr />
 
