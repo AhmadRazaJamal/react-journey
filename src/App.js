@@ -2,32 +2,34 @@ import React from 'react';
 import './App.css';
 
 const List = ({ list }) =>
-  list.map(item => <Item key={item.objectID} item={item} />);
+  list.map(({objectID, ...item}) => <Item key={objectID} {...item} />);
 
-const Item = ({ item }) => (
-  <div>
-    <span>
-      <a href={item.url}>{item.title}</a>
-    </span>
-    <span>{item.author}</span>
-    <span>{item.num_comments}</span>
-    <span>{item.points}</span>
-  </div>
-);
+const Item = ({ title, url, author, num_comments,
+  points }) => (
+    <div>
+      <span>
+        <a href={url}>{title}</a>
+      </span>
+      <span>{author}</span>
+      <span>{num_comments}</span>
+      <span>{points}</span>
+    </div>
+  );
 
 const Search = (props) => {
-  const {onSearch, searchTerm} = props ; 
+  const { onSearch, searchTerm } = props;
   return (
     <div>
       <label htmlFor="search">Search: </label>
-      <input id="search" type="text" onChange={onSearch} value={searchTerm}/>
+      <input id="search" type="text" onChange={onSearch} value={searchTerm} />
     </div>
   );
 };
 
 const App = () => {
 
-  const[searchTerm, setSearchTerm] = React.useState('React');
+  const [searchTerm, setSearchTerm] = React.useState(
+    localStorage.getItem('search') || 'React');
 
   const creatorsList = [
     {
@@ -52,6 +54,10 @@ const App = () => {
     setSearchTerm(event.target.value);
   };
 
+React.useEffect(() => {
+  localStorage.setItem('search', searchTerm);}
+,[searchTerm]);
+
   const searchedCreatorList = creatorsList.filter(creator =>
     creator.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -66,7 +72,7 @@ const App = () => {
 
       <hr />
 
-      <List list={searchedCreatorList}/>
+      <List list={searchedCreatorList} />
 
     </div>
 
