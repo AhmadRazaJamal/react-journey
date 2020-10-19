@@ -16,20 +16,46 @@ const Item = ({ title, url, author, num_comments,
     </div>
   );
 
-const Search = (props) => {
-  const { onSearch, searchTerm } = props;
-  return (
-    <div>
-      <label htmlFor="search">Search: </label>
-      <input id="search" type="text" onChange={onSearch} value={searchTerm} />
-    </div>
-  );
-};
+  const InputWithLabel = ({
+    id,
+    value,
+    type = 'text',
+    onInputChange,
+    children,
+  }) => (
+    <>
+      <label htmlFor={id}>{children}</label>
+      &nbsp;
+      <input
+        id={id}
+        type={type}
+        value={value}
+        onChange={onInputChange}
+      />
+    </>
+);
+
+const useSemiPersistentState = (key, InitialState) => {
+  const [value, SetValue] = React.useState(
+    localStorage.getItem(key) || InitialState);
+
+  React.useEffect(() => {
+    localStorage.setItem(key, value);}
+  ,[key, value]);
+
+  return [value, SetValue];
+  
+}
+
+const Hello = () =>{
+  return <>
+    <p>Hello !</p>
+  </>
+}
 
 const App = () => {
 
-  const [searchTerm, setSearchTerm] = React.useState(
-    localStorage.getItem('search') || 'React');
+  const [searchTerm, setSearchTerm] = useSemiPersistentState('search','React');
 
   const creatorsList = [
     {
@@ -54,10 +80,6 @@ const App = () => {
     setSearchTerm(event.target.value);
   };
 
-React.useEffect(() => {
-  localStorage.setItem('search', searchTerm);}
-,[searchTerm]);
-
   const searchedCreatorList = creatorsList.filter(creator =>
     creator.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -68,9 +90,17 @@ React.useEffect(() => {
       <h1>
         My React Journey
       </h1>
-      <Search onSearch={handleSearch} searchTerm={searchTerm} />
 
-      <hr />
+      <InputWithLabel
+        id="search"
+        value={searchTerm}
+        onInputChange={handleSearch}
+      >
+        <strong>Search:</strong>
+        <Hello/>
+      </InputWithLabel>
+
+     <hr />
 
       <List list={searchedCreatorList} />
 
