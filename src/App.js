@@ -22,7 +22,19 @@ const Item = ({ title, url, author, num_comments,
     type = 'text',
     onInputChange,
     children,
-  }) => (
+    isFocused
+  }) => {
+
+    const inputRef = React.useRef();
+
+    React.useEffect(() => {
+      if (isFocused && inputRef.current) {
+        
+        inputRef.current.focus();
+      }
+    }, [isFocused]);
+    
+    return(
     <>
       <label htmlFor={id}>{children}</label>
       &nbsp;
@@ -31,9 +43,30 @@ const Item = ({ title, url, author, num_comments,
         type={type}
         value={value}
         onChange={onInputChange}
+        ref={inputRef}
       />
     </>
-);
+  );
+};
+
+const initialCreatorsList = [
+  {
+    title: 'React ',
+    url: 'https://reactjs.org/',
+    author: 'Jordan Walke',
+    num_comments: 3,
+    points: 4,
+    objectID: 0,
+  },
+  {
+    title: 'Redux ',
+    url: 'https://redux.js.org/',
+    author: 'Dan Abramov, Andrew Clark',
+    num_comments: 2,
+    points: 5,
+    objectID: 1,
+  },
+];
 
 const useSemiPersistentState = (key, InitialState) => {
   const [value, SetValue] = React.useState(
@@ -45,12 +78,6 @@ const useSemiPersistentState = (key, InitialState) => {
 
   return [value, SetValue];
   
-}
-
-const Hello = () =>{
-  return <>
-    <p>Hello !</p>
-  </>
 }
 
 const App = () => {
@@ -90,14 +117,13 @@ const App = () => {
       <h1>
         My React Journey
       </h1>
-
+      
       <InputWithLabel
         id="search"
         value={searchTerm}
         onInputChange={handleSearch}
       >
         <strong>Search:</strong>
-        <Hello/>
       </InputWithLabel>
 
      <hr />
