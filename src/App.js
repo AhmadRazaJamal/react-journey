@@ -1,20 +1,32 @@
 import React from 'react';
 import './App.css';
 
-const List = ({ list }) =>
-  list.map(({objectID, ...item}) => <Item key={objectID} {...item} />);
+const List = ({ list, onRemoveItem }) =>
+  list.map(item => (
+    <Item
+      key={item.objectID}
+      item={item}
+      onRemoveItem={onRemoveItem}
+/>
+));
 
-const Item = ({ title, url, author, num_comments,
-  points }) => (
+const Item = ({ item, onRemoveItem }) => {
+  return (
     <div>
       <span>
-        <a href={url}>{title}</a>
+        <a href={item.url}>{item.title}</a>
       </span>
-      <span>{author}</span>
-      <span>{num_comments}</span>
-      <span>{points}</span>
+      <span>{item.author}</span>
+      <span>{item.num_comments}</span>
+      <span>{item.points}</span>
+      <span>
+        <button type="button" onClick={() => onRemoveItem(item)}>
+          Dismiss
+        </button>
+      </span>
     </div>
   );
+};
 
   const InputWithLabel = ({
     id,
@@ -68,6 +80,25 @@ const initialCreatorsList = [
   },
 ];
 
+const initialcreatorsList = [
+  {
+    title: 'React ',
+    url: 'https://reactjs.org/',
+    author: 'Jordan Walke',
+    num_comments: 3,
+    points: 4,
+    objectID: 0,
+  },
+  {
+    title: 'Redux ',
+    url: 'https://redux.js.org/',
+    author: 'Dan Abramov, Andrew Clark',
+    num_comments: 2,
+    points: 5,
+    objectID: 1,
+  },
+];
+
 const useSemiPersistentState = (key, InitialState) => {
   const [value, SetValue] = React.useState(
     localStorage.getItem(key) || InitialState);
@@ -83,6 +114,8 @@ const useSemiPersistentState = (key, InitialState) => {
 const App = () => {
 
   const [searchTerm, setSearchTerm] = useSemiPersistentState('search','React');
+
+  const [creators, setCreatorList] = React.useState(initialCreatorsList);
 
   const creatorsList = [
     {
@@ -111,6 +144,13 @@ const App = () => {
     creator.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  const handleRemoveCreator = item => {
+    const newCreatorsList = creators.filter(
+      creator => item.objectID !== creator.objectID 
+    )
+    setCreatorList(newCreatorsList);
+  }
+
   return (
 
     <div className="App">
@@ -128,7 +168,7 @@ const App = () => {
 
      <hr />
 
-      <List list={searchedCreatorList} />
+      <List list={searchedCreatorList} onRemoveItem={handleRemoveCreator}/>
 
     </div>
 
