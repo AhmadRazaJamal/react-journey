@@ -191,7 +191,7 @@ const SearchForm = ({
       isFocused
       onInputChange={onSearchInput}
     >
-      <strong>Search:</strong>
+      Search:
     </InputWithLabel>
 
     <button type="submit" disabled={!searchTerm}>
