@@ -1,5 +1,5 @@
-import React from 'react';
 import axios from 'axios';
+import React from 'react';
 
 const API_ENDPOINT = 'https://hn.algolia.com/api/v1/search?query=';
 
@@ -278,4 +278,5 @@ const Item = ({ item, onRemoveItem }: ItemProps) => (
   </div>
 );
 
-export default App;
+export default App; 
+export { storiesReducer, SearchForm, InputWithLabel, List, Item };

@@ -1,9 +1,42 @@
 import React from 'react';
-import { render } from '@testing-library/react';
-import App from './App';
+import App, {
+  storiesReducer,
+  Item,
+  List,
+  SearchForm,
+  InputWithLabel,
+} from './App';
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+const storyOne = {
+  title: 'React',
+  url: 'https://reactjs.org/',
+  author: 'Jordan Walke',
+  num_comments: 3,
+  points: 4,
+  objectID: 0,
+};
+
+const storyTwo = {
+  title: 'Redux',
+  url: 'https://redux.js.org/',
+  author: 'Dan Abramov, Andrew Clark',
+  num_comments: 2,
+  points: 5,
+  objectID: 1,
+};
+
+const stories = [storyOne, storyTwo];
+
+describe('storiesReducer', () => {
+  test('removes a story from all stories', () => {
+    // Arrange
+    const state = {data: stories, isLoading: false, isError: false}; 
+    const action =  {type: "REMOVE_STORY", payload: storyOne}; 
+
+    const newState = storiesReducer(state,action);
+
+    const expectedState =  {data: [storyTwo], isLoading: false, isError: false}
+
+    expect(expectedState).toStrictEqual(newState);
+  });
 });
