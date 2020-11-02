@@ -10,9 +10,7 @@ import axios from 'axios';
 import App, {
   storiesReducer,
   Item,
-  List,
   SearchForm,
-  InputWithLabel,
 } from './App';
 
 jest.mock('axios');
