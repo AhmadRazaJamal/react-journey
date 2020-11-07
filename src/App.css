@@ -1,23 +1,31 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap');
+
 .container {
   height: 100vw;
   padding: 20px;
-
-  background: #83a4d4; /* fallback for old browsers */
-  background: linear-gradient(to left, #b6fbff, #83a4d4);
-
+  background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
   color: #171212;
+}
+
+.list-header{
+  font-family: 'Lato', sans-serif;
+  color: black;
+  padding: 1%;
+  margin-bottom: 10px;
 }
 
 .headline-primary {
   font-size: 48px;
   font-weight: 300;
-  letter-spacing: 2px;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
 }
 
 .item {
   display: flex;
   align-items: center;
-  padding-bottom: 5px;
+  padding-bottom: 15px;
 }
 
 .item > span {
@@ -26,56 +34,16 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  font-family: 'Lato', sans-serif;
 }
 
 .item > span > a {
-  color: inherit;
-}
-
-.button {
-  background: transparent;
-  border: 1px solid #171212;
-  padding: 5px;
-  cursor: pointer;
-
-  transition: all 0.1s ease-in;
-}
-
-.button:hover {
-  background: #171212;
-  color: #ffffff;
-}
-
-.button:hover > svg > g {
-  fill: #ffffff;
-  stroke: #ffffff;
-}
-
-.button_small {
-  padding: 5px;
-}
-
-.button_large {
-  padding: 10px;
+  color: #f50057;
 }
 
 .search-form {
   padding: 10px 0 20px 0;
   display: flex;
-  align-items: baseline;
 }
 
-.label {
-  border-top: 1px solid #171212;
-  border-left: 1px solid #171212;
-  padding-left: 5px;
-  font-size: 24px;
-}
 
-.input {
-  border: none;
-  border-bottom: 1px solid #171212;
-  background-color: transparent;
-
-  font-size: 24px;
-}
