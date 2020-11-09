@@ -69,4 +69,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 ### Demo View of the Project
 
-<img src='project_Demo.png' width='1200' height='700' />
+<img src='project_Demo.png' width='1200' height='900' />
