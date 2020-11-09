@@ -1,10 +1,15 @@
 <h1 align="center">Road to React Journey</h1>
 
 <p align="center">
-<img src = "https://img.shields.io/badge/React-blue"> 
+<img src = "https://img.shields.io/badge/React-15-blue"> 
   <img src = "https://img.shields.io/badge/CSS-3-red"> 
       <img src = "https://img.shields.io/badge/JavaScript-1.8-lightgrey">
 </p>
+
+
+### Demo View of the Project
+
+<img src='project_Demo.gif'/>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -74,7 +79,3 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-
-### Demo View of the Project
-
-<img src='project_Demo.png' width='1400' height='750' />
