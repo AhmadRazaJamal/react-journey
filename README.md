@@ -8,10 +8,13 @@
       <img src = "https://img.shields.io/badge/JavaScript-1.8-lightgrey">
 </p>
 
-
 ### Demo View of the Project
 
 <img src='project_Demo.gif'/>
+
+The project uses Angolia's opensource API to grab tech data from their server based on search keys, while keeping track of last search terms.
+
+The appication also has pagination capability meaning that by clicking on "Show More", the user loads more data from the pages on Angolia. 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
