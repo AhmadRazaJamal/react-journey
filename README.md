@@ -1,6 +1,6 @@
 <h1 align="center">Road to React Journey</h1>
 
-<h2 align="center">Live Demo: </h2>
+<h2 align="center">Live Demo: https://ahmadrazajamal.github.io/react-journey/ </h2>
 
 <p align="center">
 <img src = "https://img.shields.io/badge/React-15-blue"> 
