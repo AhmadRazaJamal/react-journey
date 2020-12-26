@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/react-journey/static/css/main.47da64d0.chunk.css",
+    "main.js": "/react-journey/static/js/main.278b4449.chunk.js",
+    "main.js.map": "/react-journey/static/js/main.278b4449.chunk.js.map",
+    "runtime-main.js": "/react-journey/static/js/runtime-main.955d4f9b.js",
+    "runtime-main.js.map": "/react-journey/static/js/runtime-main.955d4f9b.js.map",
+    "static/js/2.7f0e08c4.chunk.js": "/react-journey/static/js/2.7f0e08c4.chunk.js",
+    "static/js/2.7f0e08c4.chunk.js.map": "/react-journey/static/js/2.7f0e08c4.chunk.js.map",
+    "index.html": "/react-journey/index.html",
+    "precache-manifest.91371720e06fea801bccfaab2087de6c.js": "/react-journey/precache-manifest.91371720e06fea801bccfaab2087de6c.js",
+    "service-worker.js": "/react-journey/service-worker.js",
+    "static/css/main.47da64d0.chunk.css.map": "/react-journey/static/css/main.47da64d0.chunk.css.map",
+    "static/js/2.7f0e08c4.chunk.js.LICENSE.txt": "/react-journey/static/js/2.7f0e08c4.chunk.js.LICENSE.txt",
+    "static/media/check.973c16f2.svg": "/react-journey/static/media/check.973c16f2.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.955d4f9b.js",
+    "static/js/2.7f0e08c4.chunk.js",
+    "static/css/main.47da64d0.chunk.css",
+    "static/js/main.278b4449.chunk.js"
+  ]
+}
